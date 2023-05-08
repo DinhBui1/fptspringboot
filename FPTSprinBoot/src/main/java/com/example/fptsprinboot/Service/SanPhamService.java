@@ -42,4 +42,8 @@ public class SanPhamService {
         SanPham sp=repo.getSanPhamByMaSP(maSP);
         repo.delete(sp);
     }
+    public SanPham create(SanPham sanPham)
+    {
+        return  repo.save(sanPham);
+    }
 }

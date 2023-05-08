@@ -1,6 +1,7 @@
 package com.example.fptsprinboot.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -37,12 +38,11 @@ public class DonHang {
     String Email;
 
     @OneToMany(mappedBy = "donHang",cascade = CascadeType.ALL)
-
-    private List<ChiTietDonHang> ListChiTietSanPham;
+    @JsonIgnore
+    private List<ChiTietDonHang> ListChiTietDonHang;
 
     @ManyToOne
     @JoinColumn(name = "MaTrangThai",nullable = false,referencedColumnName = "MaTrangThai")
-
     private TrangThai trangThai;
 
     @ManyToOne
@@ -63,7 +63,7 @@ public class DonHang {
         TenNguoiNhan = tenNguoiNhan;
         SoDienThoai = soDienThoai;
         Email = email;
-        ListChiTietSanPham = listChiTietSanPham;
+
         this.trangThai = trangThai;
         this.khachHang = khachHang;
     }
@@ -108,9 +108,7 @@ public class DonHang {
         return Email;
     }
 
-    public List<ChiTietDonHang> getListChiTietSanPham() {
-        return ListChiTietSanPham;
-    }
+
 
     public TrangThai getTrangThai() {
         return trangThai;
@@ -160,9 +158,7 @@ public class DonHang {
         Email = email;
     }
 
-    public void setListChiTietSanPham(List<ChiTietDonHang> listChiTietSanPham) {
-        ListChiTietSanPham = listChiTietSanPham;
-    }
+
 
     public void setTrangThai(TrangThai trangThai) {
         this.trangThai = trangThai;
@@ -185,7 +181,7 @@ public class DonHang {
                 ", TenNguoiNhan='" + TenNguoiNhan + '\'' +
                 ", SoDienThoai='" + SoDienThoai + '\'' +
                 ", Email='" + Email + '\'' +
-                ", ListChiTietSanPham=" + ListChiTietSanPham +
+
                 ", trangThai=" + trangThai +
                 ", khachHang=" + khachHang +
                 '}';

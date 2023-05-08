@@ -23,4 +23,8 @@ public class DanhMucService {
     repo.save(dm);
     }
 
+    public DanhMuc taodanhmuc(DanhMuc danhMuc)
+    {
+        return repo.save(danhMuc);
+    }
 }

@@ -4,6 +4,8 @@ import com.example.fptsprinboot.Model.SanPham;
 import com.example.fptsprinboot.Service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +20,11 @@ public class SanPhamControl {
     public List<SanPham> getAllSanPham()
     {
         return serv.getall();
+    }
+
+    @PostMapping("/sanpham")
+    public SanPham createSanPham(@RequestBody SanPham sanPham)
+    {
+        return serv.create(sanPham);
     }
 }

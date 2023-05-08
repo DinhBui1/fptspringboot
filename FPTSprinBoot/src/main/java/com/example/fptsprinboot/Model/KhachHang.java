@@ -1,6 +1,7 @@
 package com.example.fptsprinboot.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Generated;
@@ -52,10 +53,12 @@ public class KhachHang {
     private int IsShiper;
 
     @OneToMany(mappedBy = "khachHang",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<DonHang> ListDonHang;
 
     @OneToOne(mappedBy = "khachHang")
-    private GioHang gioHang;
+    @JsonIgnore
+   private GioHang gioHang;
 
     public KhachHang(int maKH, String tenKH, String tenTK, String email, String phone, String diaChi, String MK, String NNMK, int isVeify, int isUser, int isAdmin, int isShiper, List<DonHang> listDonHang) {
         MaKH = maKH;
@@ -70,7 +73,7 @@ public class KhachHang {
         IsUser = isUser;
         IsAdmin = isAdmin;
         IsShiper = isShiper;
-        ListDonHang = listDonHang;
+
     }
 
     public void setMaKH(int maKH) {
@@ -121,9 +124,7 @@ public class KhachHang {
         IsShiper = isShiper;
     }
 
-    public void setListDonHang(List<DonHang> listDonHang) {
-        ListDonHang = listDonHang;
-    }
+
 
     public int getMaKH() {
         return MaKH;
@@ -173,7 +174,5 @@ public class KhachHang {
         return IsShiper;
     }
 
-    public List<DonHang> getListDonHang() {
-        return ListDonHang;
-    }
+
 }

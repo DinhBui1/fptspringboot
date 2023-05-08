@@ -2,6 +2,7 @@ package com.example.fptsprinboot.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
+
 @Table(name = "LoaiSanPham")
 public class LoaiSanPham {
     @Id
@@ -20,7 +22,8 @@ public class LoaiSanPham {
 
 
     @OneToMany(mappedBy = "loaiSanPham",cascade = CascadeType.ALL)
-    private List<DanhMuc> ListDanhMuc;
+    @JsonIgnore
+    private List<DanhMuc> listDanhMuc;
 
     public LoaiSanPham() {
     }
@@ -29,10 +32,10 @@ public class LoaiSanPham {
         TenLoai = tenLoai;
     }
 
-    public LoaiSanPham(int maLoai, String tenLoai, List<DanhMuc> listDanhMuc) {
+    public LoaiSanPham(int maLoai, String tenLoai) {
         MaLoai = maLoai;
         TenLoai = tenLoai;
-        ListDanhMuc = listDanhMuc;
+
     }
 
     @Override
@@ -40,7 +43,7 @@ public class LoaiSanPham {
         return "LoaiSanPham{" +
                 "MaLoai=" + MaLoai +
                 ", TenLoai='" + TenLoai + '\'' +
-                ", ListDanhMuc=" + ListDanhMuc +
+
                 '}';
     }
 
@@ -52,9 +55,6 @@ public class LoaiSanPham {
         TenLoai = tenLoai;
     }
 
-    public void setListDanhMuc(List<DanhMuc> listDanhMuc) {
-        ListDanhMuc = listDanhMuc;
-    }
 
     public int getMaLoai() {
         return MaLoai;
@@ -64,7 +64,5 @@ public class LoaiSanPham {
         return TenLoai;
     }
 
-    public List<DanhMuc> getListDanhMuc() {
-        return ListDanhMuc;
-    }
+
 }

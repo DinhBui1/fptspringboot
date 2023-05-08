@@ -1,5 +1,6 @@
 package com.example.fptsprinboot.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class GioHang {
     private KhachHang khachHang;
 
     @OneToMany(mappedBy = "gioHang")
+    @JsonIgnore
     private List<ChiTietGioHang> chiTietGioHangs;
 
     @Column(name = "isdelete")
@@ -49,13 +51,9 @@ public class GioHang {
         this.khachHang = khachHang;
     }
 
-    public List<ChiTietGioHang> getChiTietGioHangs() {
-        return chiTietGioHangs;
-    }
 
-    public void setChiTietGioHangs(List<ChiTietGioHang> chiTietGioHangs) {
-        this.chiTietGioHangs = chiTietGioHangs;
-    }
+
+
 
     public int getIsDelete() {
         return IsDelete;

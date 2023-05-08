@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Table(name = "ChiTietDonHang")
 public class ChiTietDonHang {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaCTDH")
     private int MaCTDH;
 

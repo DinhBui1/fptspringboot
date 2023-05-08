@@ -15,11 +15,12 @@ public class SanPham {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaSP")
     int MaSP;
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "MaDM",nullable = false,referencedColumnName = "MaDM")
 
     private DanhMuc danhMuc;
+
     @Column(name = "TenSP")
     String TenSP;
     @Column(name = "MoTa")
@@ -44,7 +45,7 @@ public class SanPham {
     private List<AnhSanPham> ListAnhSanPham;
 
     @OneToMany(mappedBy = "sanPham2",cascade = CascadeType.ALL)
-
+    @JsonIgnore
     private  List<ChiTietDonHang> ListCTDH;
 
     public SanPham(int danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted) {
@@ -111,9 +112,7 @@ public class SanPham {
         ListAnhSanPham = listAnhSanPham;
     }
 
-    public void setListCTDH(List<ChiTietDonHang> listCTDH) {
-        ListCTDH = listCTDH;
-    }
+
 
     public int getMaSP() {
         return MaSP;
@@ -163,9 +162,7 @@ public class SanPham {
         return ListAnhSanPham;
     }
 
-    public List<ChiTietDonHang> getListCTDH() {
-        return ListCTDH;
-    }
+
 
     public SanPham(int maSP, DanhMuc danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted, List<AnhSanPham> listAnhSanPham, List<ChiTietDonHang> listCTDH) {
         MaSP = maSP;
@@ -180,6 +177,6 @@ public class SanPham {
         MoTaNgan = moTaNgan;
         this.isDeteted = isDeteted;
         ListAnhSanPham = listAnhSanPham;
-        ListCTDH = listCTDH;
+
     }
 }

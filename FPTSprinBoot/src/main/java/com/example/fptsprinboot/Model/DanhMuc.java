@@ -17,13 +17,14 @@ public class DanhMuc {
     int MaDM;
     @ManyToOne
     @JoinColumn(name = "MaLoai",nullable = false,referencedColumnName = "MaLoai")
-    @JsonIgnore
+    //@JsonIgnore
     private LoaiSanPham loaiSanPham;
 
     @Column(name = "TenDM")
     String TenDM;
 
     @OneToMany(mappedBy = "danhMuc",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SanPham> ListSanPham;
 
     public void setMaDM(int maDM) {
