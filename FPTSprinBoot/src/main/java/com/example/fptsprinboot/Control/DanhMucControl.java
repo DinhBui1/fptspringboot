@@ -3,10 +3,7 @@ package com.example.fptsprinboot.Control;
 import com.example.fptsprinboot.Model.DanhMuc;
 import com.example.fptsprinboot.Service.DanhMucService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,12 @@ public class DanhMucControl {
     @PostMapping("/danhmuc")
     public DanhMuc createDanhMuc(@RequestBody DanhMuc danhMuc)
     {
-        return serv.taodanhmuc(danhMuc);
+        return serv.createdanhmuc(danhMuc);
+    }
+
+    @PutMapping("/danhmuc")
+    public  DanhMuc updateDanhMuc(@RequestParam("id") int id,@RequestBody DanhMuc danhMuc)
+    {
+        return serv.updateDanhMuc(id,danhMuc);
     }
 }

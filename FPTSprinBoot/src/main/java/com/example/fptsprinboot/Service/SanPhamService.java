@@ -28,22 +28,42 @@ public class SanPhamService {
         SanPham sp= repo.getSanPhamByMaSP(masp);
         return sp.getTenSP();
     }
-    public void addSanPham(int MaDM,String TenSP, String MoTa, int GiaGoc, int GiaBanThuong,int GiaKhuyenMai, int SoLuong,String Anh,String MoTaNgan)
-    {
-        SanPham sp=new SanPham(MaDM,TenSP,MoTa,GiaGoc,GiaBanThuong,GiaKhuyenMai,SoLuong,Anh,MoTaNgan,'0');
-        repo.save(sp);
-    }
-    public void updateSanPham(int MaDM,String TenSP, String MoTa, int GiaGoc, int GiaBanThuong,int GiaKhuyenMai, int SoLuong,String Anh,String MoTaNgan,int maSP)
-    {
-        repo.UpdateCustomerInfo(maSP,MaDM,TenSP,MoTa,GiaGoc,GiaBanThuong,GiaKhuyenMai,SoLuong,Anh,MoTaNgan);
-    }
-    public  void deleteSP(int maSP)
+
+    public  SanPham deleteSanPham(int maSP)
     {
         SanPham sp=repo.getSanPhamByMaSP(maSP);
-        repo.delete(sp);
+        if(sp!=null)
+        {
+            sp.setIsDeteted(1);
+            return repo.save(sp);
+        }
+        return  null;
     }
     public SanPham create(SanPham sanPham)
     {
         return  repo.save(sanPham);
+    }
+    public SanPham updateSanPham(int id, SanPham sanPham)
+    {
+        if(sanPham!=null)
+        {
+            SanPham sp=repo.getSanPhamByMaSP(id);
+            if(sp!=null)
+            {
+                sp.setDanhMuc(sanPham.getDanhMuc());
+                sp.setTenSP(sanPham.getTenSP());
+                sp.setMoTa(sanPham.getMoTa());
+                sp.setMoTaNgan(sanPham.getMoTaNgan());
+                sp.setGiaGoc(sanPham.getGiaGoc());
+                sp.setGiaBanThuong(sanPham.getGiaBanThuong());
+                sp.setGiaKhuyenMai(sanPham.getGiaKhuyenMai());
+                sp.setSoLuong(sanPham.getSoLuong());
+                sp.setAnh(sp.getAnh());
+                sp.setIsDeteted(0);
+                return repo.save(sp);
+            }
+
+        }
+        return null;
     }
 }

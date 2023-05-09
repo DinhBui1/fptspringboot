@@ -15,4 +15,7 @@ public interface DanhMucRepository extends JpaRepository<DanhMuc,Integer> {
 
     @Query("SELECT u FROM DanhMuc u ")
     List<DanhMuc> getDanhMuc();
+
+    @Query("SELECT u FROM DanhMuc u WHERE u.MaDM = ?1")
+    DanhMuc getDanhMucByID(int id);
 }

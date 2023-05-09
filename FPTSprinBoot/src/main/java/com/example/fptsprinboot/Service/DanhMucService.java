@@ -18,13 +18,24 @@ public class DanhMucService {
     public List<DanhMuc> getDanhMucByMaLoai(int maLoai)
     {return  repo.getDanhMucByMaLoai(maLoai);}
 
-    public void addDanhMuc(int MaLoai, String TenDM)
-    {DanhMuc dm= new DanhMuc(MaLoai,TenDM);
-    repo.save(dm);
-    }
-
-    public DanhMuc taodanhmuc(DanhMuc danhMuc)
+    public DanhMuc createdanhmuc(DanhMuc danhMuc)
     {
         return repo.save(danhMuc);
+    }
+
+    public DanhMuc updateDanhMuc(int id, DanhMuc danhMuc)
+    {
+        if(danhMuc!=null)
+        {
+            DanhMuc dm =repo.getDanhMucByID(id);
+            if(dm!=null)
+            {
+                dm.setLoaiSanPham(danhMuc.getLoaiSanPham());
+                dm.setTenDM(danhMuc.getTenDM());
+                return repo.save(dm);
+            }
+
+        }
+        return null;
     }
 }
