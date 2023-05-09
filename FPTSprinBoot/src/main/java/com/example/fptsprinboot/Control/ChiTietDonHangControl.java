@@ -3,8 +3,7 @@ package com.example.fptsprinboot.Control;
 import com.example.fptsprinboot.Model.ChiTietDonHang;
 import com.example.fptsprinboot.Service.ChiTietDonHangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,5 +16,16 @@ public class ChiTietDonHangControl {
     public List<ChiTietDonHang> getallCTDH()
     {
         return  serv.getallCTDH();
+    }
+    @PostMapping("/ctdh")
+    public ChiTietDonHang createCTDH(@RequestBody ChiTietDonHang chiTietDonHang)
+    {
+        return  serv.createCTDH(chiTietDonHang);
+    }
+
+    @PutMapping("/ctdh")
+    public  ChiTietDonHang updateCTDH(@RequestParam("id") int id, @RequestBody ChiTietDonHang chiTietDonHang)
+    {
+        return serv.updateCTDH(id,chiTietDonHang);
     }
 }

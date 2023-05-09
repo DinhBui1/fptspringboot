@@ -20,4 +20,9 @@ public class ChiTietGioHangService {
     {
         return repo.getAllChiTietGioHangByID(magh);
     }
+
+    public ChiTietGioHang createCTGH(ChiTietGioHang chiTietGioHang)
+    {
+        return repo.save(chiTietGioHang);
+    }
 }

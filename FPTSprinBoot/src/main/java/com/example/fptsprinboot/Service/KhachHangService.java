@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class KhachHangService {
@@ -19,7 +20,7 @@ public class KhachHangService {
     public List<KhachHang> getAllKhachHang()
     {return repo.findAll();}
 
-    public KhachHang saveKhachHang(KhachHang khachHang)
+    public KhachHang createKhachHang(KhachHang khachHang)
     {return repo.save(khachHang);}
     public  void deleteKhachHangbyId(int id)
     {
@@ -37,12 +38,7 @@ public class KhachHangService {
     {
         return repo.getKhachHangByPhone(sdt);
     }
-    public void addKhachHang(String tenKH, String DiaChi,String SoDT,String Email)
-    {
-        KhachHang kh=new KhachHang(tenKH,Email,SoDT,DiaChi,'0','0','0');
-        repo.save(kh);
 
-    }
     public KhachHang getKhachHangByMaKH(int id)
     {return repo.findById(id).orElse(null);}
     public KhachHang getKhachHangByMaTK(int MaTK)
@@ -55,4 +51,28 @@ public class KhachHangService {
     {
         repo.ChangePassWord(id,newPass);
     }
+    public KhachHang updateKhachHang(int id,KhachHang khachHang)
+    {
+        if(khachHang!=null)
+        {
+            KhachHang kh=repo.getKhachHangByID(id);
+            if(kh!=null)
+            {
+                kh.setDiaChi(khachHang.getDiaChi());
+                kh.setEmail(khachHang.getEmail());
+                kh.setIsAdmin(kh.getIsAdmin());
+                kh.setIsUser(khachHang.getIsUser());
+                kh.setMK(khachHang.getMK());
+                kh.setTenKH(khachHang.getTenKH());
+                kh.setTenTK(khachHang.getTenTK());
+                return repo.save(kh);
+            }
+        }
+        return  null;
+    }
+    public KhachHang getKhachHangByID(int id)
+    {
+        return  repo.getKhachHangByID(id);
+    }
+
 }

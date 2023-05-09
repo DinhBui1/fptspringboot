@@ -15,14 +15,14 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(String tenKH, String email, String phone, String diaChi, int isUser, int isAdmin, int isShiper) {
+    public KhachHang(String tenKH, String email, String phone, String diaChi, int isUser, int isAdmin) {
         TenKH = tenKH;
         Email = email;
         Phone = phone;
         DiaChi = diaChi;
         IsUser = isUser;
         IsAdmin = isAdmin;
-        IsShiper = isShiper;
+
     }
 
     @Id
@@ -41,16 +41,11 @@ public class KhachHang {
     private String DiaChi;
     @Column(name = "MK")
     private String MK;
-    @Column(name = "NNMK")
-    private String NNMK;
-    @Column(name = "IsVeify")
-    private int IsVeify;
     @Column(name = "IsUser")
     private int IsUser;
     @Column(name = "IsAdmin")
     private int IsAdmin;
-    @Column(name = "IsShiper")
-    private int IsShiper;
+
 
     @OneToMany(mappedBy = "khachHang",cascade = CascadeType.ALL)
     @JsonIgnore
@@ -68,11 +63,10 @@ public class KhachHang {
         Phone = phone;
         DiaChi = diaChi;
         this.MK = MK;
-        this.NNMK = NNMK;
-        IsVeify = isVeify;
+
         IsUser = isUser;
         IsAdmin = isAdmin;
-        IsShiper = isShiper;
+
 
     }
 
@@ -104,13 +98,6 @@ public class KhachHang {
         this.MK = MK;
     }
 
-    public void setNNMK(String NNMK) {
-        this.NNMK = NNMK;
-    }
-
-    public void setIsVeify(int isVeify) {
-        IsVeify = isVeify;
-    }
 
     public void setIsUser(int isUser) {
         IsUser = isUser;
@@ -118,10 +105,6 @@ public class KhachHang {
 
     public void setIsAdmin(int isAdmin) {
         IsAdmin = isAdmin;
-    }
-
-    public void setIsShiper(int isShiper) {
-        IsShiper = isShiper;
     }
 
 
@@ -154,13 +137,6 @@ public class KhachHang {
         return MK;
     }
 
-    public String getNNMK() {
-        return NNMK;
-    }
-
-    public int getIsVeify() {
-        return IsVeify;
-    }
 
     public int getIsUser() {
         return IsUser;
@@ -168,10 +144,6 @@ public class KhachHang {
 
     public int getIsAdmin() {
         return IsAdmin;
-    }
-
-    public int getIsShiper() {
-        return IsShiper;
     }
 
 

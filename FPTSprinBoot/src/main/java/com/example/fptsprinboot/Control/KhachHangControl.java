@@ -3,8 +3,7 @@ package com.example.fptsprinboot.Control;
 import com.example.fptsprinboot.Model.KhachHang;
 import com.example.fptsprinboot.Service.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,4 +18,18 @@ public class KhachHangControl {
     {
         return serv.getAllKhachHang();
     }
+
+    @PostMapping("/khachhang")
+    public KhachHang createKhachHang(@RequestBody  KhachHang khachHang)
+    {
+        return  serv.createKhachHang(khachHang);
+    }
+
+    @PutMapping("/khachhang")
+    public  KhachHang updateKhachHang(@RequestParam("id") int id,@RequestBody KhachHang khachHang)
+    {
+        return  serv.updateKhachHang(id, khachHang);
+    }
+
+
 }

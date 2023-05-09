@@ -22,4 +22,16 @@ public class GioHangService {
         return repo.getGioHangByKhachHang(makh);
     }
 
+    public GioHang getGioHangByID(int id)
+    {
+        return  repo.getGioHangById(id);
+    }
+
+    public GioHang createGioHang(GioHang gioHang)
+    {
+        return  repo.save(gioHang);
+    }
+
+
+
 }

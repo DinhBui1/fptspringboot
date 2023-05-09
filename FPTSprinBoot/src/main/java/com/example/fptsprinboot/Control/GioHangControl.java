@@ -4,6 +4,8 @@ import com.example.fptsprinboot.Model.GioHang;
 import com.example.fptsprinboot.Service.GioHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +19,11 @@ public class GioHangControl {
     public List<GioHang> getallGioHang()
     {
         return serv.getAllGioHang();
+    }
+
+    @PostMapping("/giohang")
+    public  GioHang createGioHang(@RequestBody GioHang gioHang)
+    {
+        return serv.createGioHang(gioHang);
     }
 }

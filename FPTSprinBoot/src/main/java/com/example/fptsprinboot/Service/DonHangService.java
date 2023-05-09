@@ -17,4 +17,30 @@ public class DonHangService {
         return repo.findAll();
     }
 
+    public DonHang createDonHang(DonHang donHang)
+    {
+        return repo.save(donHang);
+    }
+    public DonHang getDonHangByID(int id)
+    {
+        return  repo.getDonHangById(id);
+    }
+    public DonHang updateDonHang(int id, DonHang donHang)
+    {
+        if(donHang!=null)
+        {
+            DonHang dh=repo.getDonHangById(id);
+            if(dh!=null)
+            {
+                dh.setKhachHang(donHang.getKhachHang());
+                dh.setTrangThai(donHang.getTrangThai());
+                dh.setNgayDatHang(donHang.getNgayDatHang());
+                dh.setDiaChi(donHang.getDiaChi());
+                dh.setTongTien(donHang.getTongTien());
+                return repo.save(dh);
+            }
+        }
+        return null;
+    }
+
 }
