@@ -15,14 +15,13 @@ public class DanhMuc {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaDM")
     int MaDM;
-    @ManyToOne
-    @JoinColumn(name = "MaLoai",nullable = false,referencedColumnName = "MaLoai")
-    //@JsonIgnore
-    private LoaiSanPham loaiSanPham;
+
 
     @Column(name = "TenDM")
     String TenDM;
 
+    @Column(name = "Anhdm")
+    String anhdm;
     @OneToMany(mappedBy = "danhMuc",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<SanPham> ListSanPham;
@@ -31,14 +30,6 @@ public class DanhMuc {
         MaDM = maDM;
     }
 
-    public DanhMuc(int maDM, String tenDM) {
-        MaDM = maDM;
-        TenDM = tenDM;
-    }
-
-    public void setLoaiSanPham(LoaiSanPham loaiSanPham) {
-        this.loaiSanPham = loaiSanPham;
-    }
 
     public void setTenDM(String tenDM) {
         TenDM = tenDM;
@@ -48,10 +39,6 @@ public class DanhMuc {
         return MaDM;
     }
 
-    public LoaiSanPham getLoaiSanPham() {
-        return loaiSanPham;
-    }
-
     public String getTenDM() {
         return TenDM;
     }
@@ -59,9 +46,9 @@ public class DanhMuc {
     public DanhMuc() {
     }
 
-    public DanhMuc(int maDM, LoaiSanPham loaiSanPham, String tenDM) {
+    public DanhMuc(int maDM, String tenDM) {
         MaDM = maDM;
-        this.loaiSanPham = loaiSanPham;
+
         TenDM = tenDM;
     }
 }

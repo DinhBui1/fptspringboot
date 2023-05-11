@@ -30,4 +30,9 @@ public class DanhMucControl {
     {
         return serv.updateDanhMuc(id,danhMuc);
     }
+    @GetMapping("/danhmucid")
+    public  DanhMuc getDmbyid(@RequestParam("id") int id)
+    {
+        return  serv.getDanhMucbyID(id);
+    }
 }

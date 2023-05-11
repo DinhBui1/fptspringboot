@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface DanhMucRepository extends JpaRepository<DanhMuc,Integer> {
-    @Query("SELECT u FROM DanhMuc u WHERE u.loaiSanPham = ?1")
-    List<DanhMuc> getDanhMucByMaLoai(int maLoai);
+
 
     @Query("SELECT u FROM DanhMuc u ")
     List<DanhMuc> getDanhMuc();
