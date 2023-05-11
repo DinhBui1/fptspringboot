@@ -15,17 +15,17 @@ public class DonHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaDH")
-    int MaDH;
+    int maDH;
     @Column(name = "TongTien")
-    int TongTien;
+    int tongTien;
     @Column(name = "DiaChi")
-    String DiaChi;
+    String diaChi;
     @Column(name = "NgayDatHang")
-    Date NgayDatHang;
+    Date ngayDatHang;
 
     @OneToMany(mappedBy = "donHang",cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<ChiTietDonHang> ListChiTietDonHang;
+    private List<ChiTietDonHang> listChiTietDonHang;
 
     @ManyToOne
     @JoinColumn(name = "MaTrangThai",nullable = false,referencedColumnName = "MaTrangThai")
@@ -39,12 +39,12 @@ public class DonHang {
     }
 
     public DonHang(int maDH, int maGH, int tongTien, Date thoiGian, String diaChi, Date NgayDatHang, int phuongThucThanhToan, String tenNguoiNhan, String soDienThoai, String email, List<ChiTietDonHang> listChiTietSanPham, TrangThai trangThai, KhachHang khachHang) {
-        MaDH = maDH;
+        this.maDH = maDH;
 
-        TongTien = tongTien;
+        this.tongTien = tongTien;
 
-        DiaChi = diaChi;
-        NgayDatHang = NgayDatHang;
+        this.diaChi = diaChi;
+        this.ngayDatHang = NgayDatHang;
 
 
         this.trangThai = trangThai;
@@ -52,62 +52,71 @@ public class DonHang {
     }
 
     public int getMaDH() {
-        return MaDH;
+        return maDH;
     }
 
-
+    public void setMaDH(int maDH) {
+        this.maDH = maDH;
+    }
 
     public int getTongTien() {
-        return TongTien;
+        return tongTien;
     }
 
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
+    }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
     public Date getNgayDatHang() {
-        return NgayDatHang;
+        return ngayDatHang;
     }
 
+    public void setNgayDatHang(Date ngayDatHang) {
+        this.ngayDatHang = ngayDatHang;
+    }
 
+    public List<ChiTietDonHang> getListChiTietDonHang() {
+        return listChiTietDonHang;
+    }
+
+    public void setListChiTietDonHang(List<ChiTietDonHang> listChiTietDonHang) {
+        this.listChiTietDonHang = listChiTietDonHang;
+    }
 
     public TrangThai getTrangThai() {
         return trangThai;
+    }
+
+    public void setTrangThai(TrangThai trangThai) {
+        this.trangThai = trangThai;
     }
 
     public KhachHang getKhachHang() {
         return khachHang;
     }
 
-    public void setMaDH(int maDH) {
-        MaDH = maDH;
-    }
-
-
-    public void setTongTien(int tongTien) {
-        TongTien = tongTien;
-    }
-
-
-    public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
-    }
-
-    public void setNgayDatHang(Date NgayDatHang) {
-        NgayDatHang = NgayDatHang;
-    }
-
-
-
-
-    public void setTrangThai(TrangThai trangThai) {
-        this.trangThai = trangThai;
-    }
-
     public void setKhachHang(KhachHang khachHang) {
         this.khachHang = khachHang;
     }
 
-
+    @Override
+    public String toString() {
+        return "DonHang{" +
+                "maDH=" + maDH +
+                ", tongTien=" + tongTien +
+                ", diaChi='" + diaChi + '\'' +
+                ", ngayDatHang=" + ngayDatHang +
+                ", listChiTietDonHang=" + listChiTietDonHang +
+                ", trangThai=" + trangThai +
+                ", khachHang=" + khachHang +
+                '}';
+    }
 }

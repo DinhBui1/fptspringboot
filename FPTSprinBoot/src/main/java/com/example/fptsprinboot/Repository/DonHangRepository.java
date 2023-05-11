@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DonHangRepository extends JpaRepository<DonHang,Integer> {
-    @Query("select u FROM DonHang u WHERE u.MaDH=?1")
+    @Query("select u FROM DonHang u WHERE u.maDH=?1")
     DonHang getDonHangById(int id);
 }

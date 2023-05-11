@@ -14,7 +14,7 @@ public class GioHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaGH")
-    int MaGH;
+    int maGH;
 
     @OneToOne
     @JoinColumn(name = "MaKH")
@@ -25,22 +25,22 @@ public class GioHang {
     private List<ChiTietGioHang> chiTietGioHangs;
 
     @Column(name = "isdelete")
-    int IsDelete;
+    int isDelete;
 
     public GioHang() {
     }
 
     public GioHang(KhachHang khachHang, int isDelete) {
         this.khachHang = khachHang;
-        IsDelete = isDelete;
+        this.isDelete = isDelete;
     }
 
     public int getMaGH() {
-        return MaGH;
+        return maGH;
     }
 
     public void setMaGH(int maGH) {
-        MaGH = maGH;
+        this.maGH = maGH;
     }
 
     public KhachHang getKhachHang() {
@@ -51,15 +51,29 @@ public class GioHang {
         this.khachHang = khachHang;
     }
 
+    public List<ChiTietGioHang> getChiTietGioHangs() {
+        return chiTietGioHangs;
+    }
 
-
-
+    public void setChiTietGioHangs(List<ChiTietGioHang> chiTietGioHangs) {
+        this.chiTietGioHangs = chiTietGioHangs;
+    }
 
     public int getIsDelete() {
-        return IsDelete;
+        return isDelete;
     }
 
     public void setIsDelete(int isDelete) {
-        IsDelete = isDelete;
+        this.isDelete = isDelete;
+    }
+
+    @Override
+    public String toString() {
+        return "GioHang{" +
+                "maGH=" + maGH +
+                ", khachHang=" + khachHang +
+                ", chiTietGioHangs=" + chiTietGioHangs +
+                ", isDelete=" + isDelete +
+                '}';
     }
 }

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChiTietDonHangRepository extends JpaRepository<ChiTietDonHang,Integer> {
 
-    @Query("SELECT u FROM  ChiTietDonHang u WHERE u.MaCTDH=?1")
+    @Query("SELECT u FROM  ChiTietDonHang u WHERE u.maCTDH=?1")
     ChiTietDonHang getChiTietDonHangByID(int id);
 }
