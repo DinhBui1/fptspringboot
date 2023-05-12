@@ -13,40 +13,43 @@ import java.util.List;
 public class TrangThai {
     @Id
     @Column(name = "MaTrangThai")
-    int MaTrangThai;
+    int maTrangThai;
     @Column(name = "TenTrangThai")
-    String TenTrangThai;
+    String tenTrangThai;
 
     @OneToMany(mappedBy = "trangThai",cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<DonHang> ListDonHang;
+    private List<DonHang> listDonHang;
 
     public TrangThai(int maTrangThai, String tenTrangThai, List<DonHang> listDonHang) {
-        MaTrangThai = maTrangThai;
-        TenTrangThai = tenTrangThai;
-
+        this.maTrangThai = maTrangThai;
+        this.tenTrangThai = tenTrangThai;
     }
 
     public TrangThai() {
     }
 
-    public void setMaTrangThai(int maTrangThai) {
-        MaTrangThai = maTrangThai;
-    }
-
-    public void setTenTrangThai(String tenTrangThai) {
-        TenTrangThai = tenTrangThai;
-    }
-
-
-
     public int getMaTrangThai() {
-        return MaTrangThai;
+        return maTrangThai;
+    }
+
+    public void setMaTrangThai(int maTrangThai) {
+        this.maTrangThai = maTrangThai;
     }
 
     public String getTenTrangThai() {
-        return TenTrangThai;
+        return tenTrangThai;
     }
 
+    public void setTenTrangThai(String tenTrangThai) {
+        this.tenTrangThai = tenTrangThai;
+    }
 
+    public List<DonHang> getListDonHang() {
+        return listDonHang;
+    }
+
+    public void setListDonHang(List<DonHang> listDonHang) {
+        this.listDonHang = listDonHang;
+    }
 }

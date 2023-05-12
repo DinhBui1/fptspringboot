@@ -62,7 +62,7 @@ public class KhachHangService {
                 kh.setEmail(khachHang.getEmail());
                 kh.setIsAdmin(kh.getIsAdmin());
                 kh.setIsUser(khachHang.getIsUser());
-                kh.setMK(khachHang.getMK());
+                kh.setmK(khachHang.getmK());
                 kh.setTenKH(khachHang.getTenKH());
                 kh.setTenTK(khachHang.getTenTK());
                 return repo.save(kh);

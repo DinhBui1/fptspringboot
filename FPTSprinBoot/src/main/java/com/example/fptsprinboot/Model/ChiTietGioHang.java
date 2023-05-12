@@ -10,45 +10,37 @@ public class ChiTietGioHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaCTGH")
-    int MaCTGH;
+    int maCTGH;
 
     @ManyToOne
     @JoinColumn(name = "MaGH")
     private GioHang gioHang;
 
     @Column(name = "MaSP")
-    int MaSP;
+    int maSP;
 
     @Column(name = "SoLuong")
-    int SoLuong;
+    int soLuong;
 
     @Column(name = "isdelete")
-    int IdDelete;
+    int idDelete;
 
     public ChiTietGioHang() {
     }
 
     public ChiTietGioHang(GioHang gioHang, int maSP, int soLuong, int idDelete) {
         this.gioHang = gioHang;
-        MaSP = maSP;
-        SoLuong = soLuong;
-        IdDelete = idDelete;
-    }
-
-    public int getIdDelete() {
-        return IdDelete;
-    }
-
-    public void setIdDelete(int idDelete) {
-        IdDelete = idDelete;
+        this.maSP = maSP;
+        this.soLuong = soLuong;
+        this.idDelete = idDelete;
     }
 
     public int getMaCTGH() {
-        return MaCTGH;
+        return maCTGH;
     }
 
     public void setMaCTGH(int maCTGH) {
-        MaCTGH = maCTGH;
+        this.maCTGH = maCTGH;
     }
 
     public GioHang getGioHang() {
@@ -60,18 +52,37 @@ public class ChiTietGioHang {
     }
 
     public int getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(int maSP) {
-        MaSP = maSP;
+        this.maSP = maSP;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
+        this.soLuong = soLuong;
+    }
+
+    public int getIdDelete() {
+        return idDelete;
+    }
+
+    public void setIdDelete(int idDelete) {
+        this.idDelete = idDelete;
+    }
+
+    @Override
+    public String toString() {
+        return "ChiTietGioHang{" +
+                "maCTGH=" + maCTGH +
+                ", gioHang=" + gioHang +
+                ", maSP=" + maSP +
+                ", soLuong=" + soLuong +
+                ", idDelete=" + idDelete +
+                '}';
     }
 }

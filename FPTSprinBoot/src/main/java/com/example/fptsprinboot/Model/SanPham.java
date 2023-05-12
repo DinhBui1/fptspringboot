@@ -14,7 +14,7 @@ public class SanPham {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaSP")
-    int MaSP;
+    int maSP;
 
     @ManyToOne
     @JoinColumn(name = "MaDM",nullable = false,referencedColumnName = "MaDM")
@@ -22,161 +22,153 @@ public class SanPham {
     private DanhMuc danhMuc;
 
     @Column(name = "TenSP")
-    String TenSP;
+    String tenSP;
     @Column(name = "MoTa")
-    String MoTa;
+    String moTa;
     @Column(name = "GiaGoc")
-    int GiaGoc;
+    int giaGoc;
     @Column(name = "GiaBanThuong")
-    int GiaBanThuong;
+    int giaBanThuong;
     @Column(name = "GiaKhuyenMai")
-    int GiaKhuyenMai;
+    int giaKhuyenMai;
     @Column(name = "SoLuong")
-    int SoLuong;
+    int soLuong;
     @Column(name = "Anh")
-    String Anh;
+    String anh;
     @Column(name = "MoTaNgan")
-    String MoTaNgan;
+    String moTaNgan;
     @Column(name = "isDeleted")
     int isDeteted;
 
     @OneToMany(mappedBy = "sanPham1",cascade = CascadeType.ALL)
 
-    private List<AnhSanPham> ListAnhSanPham;
+    private List<AnhSanPham> listAnhSanPham;
 
     @OneToMany(mappedBy = "sanPham2",cascade = CascadeType.ALL)
     @JsonIgnore
-    private  List<ChiTietDonHang> ListCTDH;
-
-    public SanPham(int danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted) {
-        danhMuc = danhMuc;
-        TenSP = tenSP;
-        MoTa = moTa;
-        GiaGoc = giaGoc;
-        GiaBanThuong = giaBanThuong;
-        GiaKhuyenMai = giaKhuyenMai;
-        SoLuong = soLuong;
-        Anh = anh;
-        MoTaNgan = moTaNgan;
-        this.isDeteted = isDeteted;
-    }
+    private  List<ChiTietDonHang> listCTDH;
 
     public SanPham() {
     }
 
-    public void setMaSP(int maSP) {
-        MaSP = maSP;
-    }
-
-    public void setDanhMuc(DanhMuc danhMuc) {
+    public SanPham(int maSP, DanhMuc danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted, List<AnhSanPham> listAnhSanPham, List<ChiTietDonHang> listCTDH) {
+        this.maSP = maSP;
         this.danhMuc = danhMuc;
-    }
-
-    public void setTenSP(String tenSP) {
-        TenSP = tenSP;
-    }
-
-    public void setMoTa(String moTa) {
-        MoTa = moTa;
-    }
-
-    public void setGiaGoc(int giaGoc) {
-        GiaGoc = giaGoc;
-    }
-
-    public void setGiaBanThuong(int giaBanThuong) {
-        GiaBanThuong = giaBanThuong;
-    }
-
-    public void setGiaKhuyenMai(int giaKhuyenMai) {
-        GiaKhuyenMai = giaKhuyenMai;
-    }
-
-    public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
-    }
-
-    public void setAnh(String anh) {
-        Anh = anh;
-    }
-
-    public void setMoTaNgan(String moTaNgan) {
-        MoTaNgan = moTaNgan;
-    }
-
-    public void setIsDeteted(int isDeteted) {
+        this.tenSP = tenSP;
+        this.moTa = moTa;
+        this.giaGoc = giaGoc;
+        this.giaBanThuong = giaBanThuong;
+        this.giaKhuyenMai = giaKhuyenMai;
+        this.soLuong = soLuong;
+        this.anh = anh;
+        this.moTaNgan = moTaNgan;
         this.isDeteted = isDeteted;
+        this.listAnhSanPham = listAnhSanPham;
+        this.listCTDH = listCTDH;
     }
-
-    public void setListAnhSanPham(List<AnhSanPham> listAnhSanPham) {
-        ListAnhSanPham = listAnhSanPham;
-    }
-
-
 
     public int getMaSP() {
-        return MaSP;
+        return maSP;
+    }
+
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
     }
 
     public DanhMuc getDanhMuc() {
         return danhMuc;
     }
 
+    public void setDanhMuc(DanhMuc danhMuc) {
+        this.danhMuc = danhMuc;
+    }
+
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        this.tenSP = tenSP;
     }
 
     public String getMoTa() {
-        return MoTa;
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 
     public int getGiaGoc() {
-        return GiaGoc;
+        return giaGoc;
+    }
+
+    public void setGiaGoc(int giaGoc) {
+        this.giaGoc = giaGoc;
     }
 
     public int getGiaBanThuong() {
-        return GiaBanThuong;
+        return giaBanThuong;
+    }
+
+    public void setGiaBanThuong(int giaBanThuong) {
+        this.giaBanThuong = giaBanThuong;
     }
 
     public int getGiaKhuyenMai() {
-        return GiaKhuyenMai;
+        return giaKhuyenMai;
+    }
+
+    public void setGiaKhuyenMai(int giaKhuyenMai) {
+        this.giaKhuyenMai = giaKhuyenMai;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
     public String getAnh() {
-        return Anh;
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
     }
 
     public String getMoTaNgan() {
-        return MoTaNgan;
+        return moTaNgan;
+    }
+
+    public void setMoTaNgan(String moTaNgan) {
+        this.moTaNgan = moTaNgan;
     }
 
     public int getIsDeteted() {
         return isDeteted;
     }
 
-    public List<AnhSanPham> getListAnhSanPham() {
-        return ListAnhSanPham;
-    }
-
-
-
-    public SanPham(int maSP, DanhMuc danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted, List<AnhSanPham> listAnhSanPham, List<ChiTietDonHang> listCTDH) {
-        MaSP = maSP;
-        this.danhMuc = danhMuc;
-        TenSP = tenSP;
-        MoTa = moTa;
-        GiaGoc = giaGoc;
-        GiaBanThuong = giaBanThuong;
-        GiaKhuyenMai = giaKhuyenMai;
-        SoLuong = soLuong;
-        Anh = anh;
-        MoTaNgan = moTaNgan;
+    public void setIsDeteted(int isDeteted) {
         this.isDeteted = isDeteted;
-        ListAnhSanPham = listAnhSanPham;
-
     }
+
+    public List<AnhSanPham> getListAnhSanPham() {
+        return listAnhSanPham;
+    }
+
+    public void setListAnhSanPham(List<AnhSanPham> listAnhSanPham) {
+        this.listAnhSanPham = listAnhSanPham;
+    }
+
+    public List<ChiTietDonHang> getListCTDH() {
+        return listCTDH;
+    }
+
+    public void setListCTDH(List<ChiTietDonHang> listCTDH) {
+        this.listCTDH = listCTDH;
+    }
+
 }

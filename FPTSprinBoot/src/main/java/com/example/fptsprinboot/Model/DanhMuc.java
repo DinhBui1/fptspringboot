@@ -14,41 +14,65 @@ public class DanhMuc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaDM")
-    int MaDM;
+    int maDM;
 
 
     @Column(name = "TenDM")
-    String TenDM;
+    String tenDM;
 
     @Column(name = "Anhdm")
     String anhdm;
     @OneToMany(mappedBy = "danhMuc",cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<SanPham> ListSanPham;
-
-    public void setMaDM(int maDM) {
-        MaDM = maDM;
-    }
-
-
-    public void setTenDM(String tenDM) {
-        TenDM = tenDM;
-    }
-
-    public int getMaDM() {
-        return MaDM;
-    }
-
-    public String getTenDM() {
-        return TenDM;
-    }
+    private List<SanPham> listSanPham;
 
     public DanhMuc() {
     }
 
     public DanhMuc(int maDM, String tenDM) {
-        MaDM = maDM;
+        this.maDM = maDM;
+        this.tenDM = tenDM;
+    }
 
-        TenDM = tenDM;
+    public int getMaDM() {
+        return maDM;
+    }
+
+    public void setMaDM(int maDM) {
+        this.maDM = maDM;
+    }
+
+    public String getTenDM() {
+        return tenDM;
+    }
+
+    public void setTenDM(String tenDM) {
+        this.tenDM = tenDM;
+    }
+
+    public String getAnhdm() {
+        return anhdm;
+    }
+
+    public void setAnhdm(String anhdm) {
+        this.anhdm = anhdm;
+    }
+
+    public List<SanPham> getListSanPham() {
+        return listSanPham;
+    }
+
+    public void setListSanPham(List<SanPham> listSanPham) {
+        this.listSanPham = listSanPham;
+    }
+
+    @Override
+    public String toString() {
+        return "DanhMuc{" +
+                "maDM=" + maDM +
+                ", tenDM='" + tenDM + '\'' +
+                ", anhdm='" + anhdm + '\'' +
+                ", listSanPham=" + listSanPham +
+                '}';
     }
 }
