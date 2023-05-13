@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface SanPhamRepository extends JpaRepository<SanPham,Integer> {
-    @Query("SELECT u FROM SanPham u WHERE u.danhMuc= ?1")
+    @Query("SELECT u FROM SanPham u WHERE u.danhMuc.maDM= ?1")
     List<SanPham> getSanPhamByMaDM(int MaDM);
 
     @Query("SELECT u FROM SanPham u WHERE u.maSP= ?1")

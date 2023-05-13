@@ -18,8 +18,6 @@ public class ChiTietDonHang {
     @ManyToOne
     @JoinColumn(name = "MaSP",nullable = false,referencedColumnName = "MaSP")
     private SanPham sanPham2;
-
-
     @ManyToOne()
     @JoinColumn(name = "MaDH")
 
