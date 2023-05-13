@@ -75,4 +75,6 @@ public class KhachHangService {
         return  repo.getKhachHangByID(id);
     }
 
+    public KhachHang getKhachHangByUsernamevsPassword(String email, String password){return  repo.getKhachHangByPWAndUsername(email,password);}
+
 }
