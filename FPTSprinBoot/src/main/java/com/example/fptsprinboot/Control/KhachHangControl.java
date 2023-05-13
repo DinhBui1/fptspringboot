@@ -30,6 +30,20 @@ public class KhachHangControl {
     {
         return  serv.updateKhachHang(id, khachHang);
     }
-
+    @GetMapping("/dangnhap")
+    public  String dangnhap(@RequestParam("tentk") String tentk, @RequestParam("mk") String mk)
+    {
+        KhachHang kh= serv.dangnhap(tentk,mk);
+        if(kh!=null)
+        {
+            return "Success";
+        }
+        return "Failure";
+    }
+    @PostMapping("/dangky")
+    public  KhachHang dangky(@RequestBody KhachHang khachHang)
+    {
+        return serv.createKhachHang(khachHang);
+    }
 
 }
