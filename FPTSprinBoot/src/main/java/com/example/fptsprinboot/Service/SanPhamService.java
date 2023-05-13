@@ -28,7 +28,6 @@ public class SanPhamService {
         SanPham sp= repo.getSanPhamByMaSP(masp);
         return sp.getTenSP();
     }
-
     public  SanPham deleteSanPham(int maSP)
     {
         SanPham sp=repo.getSanPhamByMaSP(maSP);

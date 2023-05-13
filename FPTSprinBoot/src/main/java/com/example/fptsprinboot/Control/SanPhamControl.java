@@ -19,18 +19,18 @@ public class SanPhamControl {
         return serv.getall();
     }
 
+    @GetMapping("/sanpham-by-dm")
+    public List<SanPham> getSanPhamByDanhMuc(@RequestParam("maDM") int maDM){return serv.getAllsanpham(maDM);}
     @PostMapping("/sanpham")
     public SanPham createSanPham(@RequestBody SanPham sanPham)
     {
         return serv.create(sanPham);
     }
-
     @PutMapping("/sanpham")
     public SanPham updateSanPham(@RequestParam("id") int id,@RequestBody SanPham sanPham)
     {
         return serv.updateSanPham(id,sanPham);
     }
-
     @PutMapping("/deletesp")
     public  SanPham deleteSanPham(@RequestParam("id") int id)
     {
