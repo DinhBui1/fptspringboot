@@ -14,8 +14,6 @@ public class DanhMucService {
 
     public List<DanhMuc> getAllDanhMuc()
     {return repo.findAll();}
-
-
     public DanhMuc createdanhmuc(DanhMuc danhMuc)
     {
         return repo.save(danhMuc);
