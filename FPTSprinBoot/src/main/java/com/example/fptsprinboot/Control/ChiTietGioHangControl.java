@@ -34,4 +34,10 @@ public class ChiTietGioHangControl {
     {
         return serv.updateSoLuong(id,chiTietGioHang);
     }
+
+    @DeleteMapping("delete-item-cart")
+    public ChiTietGioHang deleteItemCart(@RequestParam("idKH") int idKH,@RequestParam("idSP") int idSP){
+        return serv.deleteCartItem(idKH,idSP);
+    }
+
 }

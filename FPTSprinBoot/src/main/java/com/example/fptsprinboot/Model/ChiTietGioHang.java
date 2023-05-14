@@ -3,7 +3,6 @@ package com.example.fptsprinboot.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-
 @Entity
 @Data
 @Table(name = "ChiTietGioHang")

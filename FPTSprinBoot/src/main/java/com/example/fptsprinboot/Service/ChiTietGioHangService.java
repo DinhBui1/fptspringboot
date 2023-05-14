@@ -54,6 +54,13 @@ public class ChiTietGioHangService {
 
     }
 
+    public ChiTietGioHang deleteCartItem(int idKH, int idSP){
+        GioHang gh = repo2.getGioHangByKhachHang(idKH);
+        ChiTietGioHang chiTietGioHang = repo.getAllChiTietGioHangByMaSP(idSP,gh.getMaGH());
+        repo.delete(chiTietGioHang);
+        return chiTietGioHang;
+    }
+
     public  ChiTietGioHang getCTGHByMaSP(int id,int idkh)
     {
         return repo.getAllChiTietGioHangByMaSP(id,idkh);
