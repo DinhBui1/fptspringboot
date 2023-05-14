@@ -16,8 +16,11 @@ public class ChiTietGioHang {
     @JoinColumn(name = "MaGH")
     private GioHang gioHang;
 
-    @Column(name = "MaSP")
-    int maSP;
+
+
+    @ManyToOne
+    @JoinColumn(name = "MaSP",nullable = false,referencedColumnName = "MaSP")
+    private SanPham sanPham3;
 
     @Column(name = "SoLuong")
     int soLuong;
@@ -30,7 +33,7 @@ public class ChiTietGioHang {
 
     public ChiTietGioHang(GioHang gioHang, int maSP, int soLuong, int idDelete) {
         this.gioHang = gioHang;
-        this.maSP = maSP;
+
         this.soLuong = soLuong;
         this.idDelete = idDelete;
     }
@@ -51,13 +54,9 @@ public class ChiTietGioHang {
         this.gioHang = gioHang;
     }
 
-    public int getMaSP() {
-        return maSP;
-    }
 
-    public void setMaSP(int maSP) {
-        this.maSP = maSP;
-    }
+
+
 
     public int getSoLuong() {
         return soLuong;
@@ -80,7 +79,7 @@ public class ChiTietGioHang {
         return "ChiTietGioHang{" +
                 "maCTGH=" + maCTGH +
                 ", gioHang=" + gioHang +
-                ", maSP=" + maSP +
+
                 ", soLuong=" + soLuong +
                 ", idDelete=" + idDelete +
                 '}';
