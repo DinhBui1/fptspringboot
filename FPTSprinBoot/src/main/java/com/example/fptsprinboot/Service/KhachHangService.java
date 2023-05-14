@@ -21,7 +21,10 @@ public class KhachHangService {
     {return repo.findAll();}
 
     public KhachHang createKhachHang(KhachHang khachHang)
-    {return repo.save(khachHang);}
+    {
+        khachHang.setIsUser(1);
+        return repo.save(khachHang);
+    }
     public  void deleteKhachHangbyId(int id)
     {
         repo.deleteById(id);
@@ -73,6 +76,15 @@ public class KhachHangService {
     public KhachHang getKhachHangByID(int id)
     {
         return  repo.getKhachHangByID(id);
+    }
+    public KhachHang dangnhap(String tentk, String mk)
+    {
+        KhachHang kh =repo.dangnhap(tentk,mk);
+        if(kh!=null)
+        {
+            return kh;
+        }
+        return  null;
     }
 
     public KhachHang getKhachHangByUsernamevsPassword(String email, String password){return  repo.getKhachHangByPWAndUsername(email,password);}
