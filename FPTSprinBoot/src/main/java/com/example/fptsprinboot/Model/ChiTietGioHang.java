@@ -14,6 +14,7 @@ public class ChiTietGioHang {
     int maCTGH;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "MaGH")
     @JsonIgnore
     private GioHang gioHang;
