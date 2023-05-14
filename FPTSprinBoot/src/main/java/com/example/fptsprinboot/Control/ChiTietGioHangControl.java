@@ -19,9 +19,9 @@ public class ChiTietGioHangControl {
     }
 
     @PostMapping("/ctgh")
-    public ChiTietGioHang createCTGH(@RequestBody  ChiTietGioHang chiTietGioHang)
+    public ChiTietGioHang createCTGH(@RequestBody  ChiTietGioHang chiTietGioHang,@RequestParam("id") int id)
     {
-        return  serv.createCTGH(chiTietGioHang);
+        return  serv.createCTGH(chiTietGioHang,id);
     }
 
     @GetMapping("/ctghbyid")
