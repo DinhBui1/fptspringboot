@@ -1,6 +1,8 @@
 package com.example.fptsprinboot.Service;
 
+import com.example.fptsprinboot.Model.GioHang;
 import com.example.fptsprinboot.Model.KhachHang;
+import com.example.fptsprinboot.Repository.GioHangRepository;
 import com.example.fptsprinboot.Repository.KhachHangRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -15,6 +17,11 @@ import java.util.Optional;
 public class KhachHangService {
     @Autowired
     private KhachHangRepository repo;
+
+    @Autowired
+    private GioHangRepository repo2;
+
+
     @PersistenceContext
     private EntityManager entityManager;
     public List<KhachHang> getAllKhachHang()
@@ -22,8 +29,11 @@ public class KhachHangService {
 
     public KhachHang createKhachHang(KhachHang khachHang)
     {
+        GioHang gh = new GioHang(khachHang,0);
         khachHang.setIsUser(1);
-        return repo.save(khachHang);
+        repo.save(khachHang);
+        repo2.save(gh);
+        return khachHang;
     }
     public  void deleteKhachHangbyId(int id)
     {

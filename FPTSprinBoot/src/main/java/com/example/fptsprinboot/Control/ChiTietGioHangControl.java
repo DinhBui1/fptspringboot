@@ -29,4 +29,9 @@ public class ChiTietGioHangControl {
     {
         return  serv.getAllChiTietGioHangById(id);
     }
+    @PutMapping("/updatesl")
+    public  ChiTietGioHang UpdateSoLuong(@RequestParam("id") int id,@RequestBody ChiTietGioHang chiTietGioHang)
+    {
+        return serv.updateSoLuong(id,chiTietGioHang);
+    }
 }
