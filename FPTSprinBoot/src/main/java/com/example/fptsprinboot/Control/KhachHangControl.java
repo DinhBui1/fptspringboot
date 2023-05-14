@@ -34,4 +34,5 @@ public class KhachHangControl {
         public KhachHang getKhachHang(@RequestParam("email") String email, @RequestParam("password") String password){
         return serv.getKhachHangByUsernamevsPassword(email,password);
     }
+
 }

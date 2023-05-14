@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ChiTietGioHangRepository extends JpaRepository<ChiTietGioHang,Integer> {
-    @Query("SELECT u FROM ChiTietGioHang u WHERE (u.gioHang = ?1)")
+    @Query("SELECT u FROM ChiTietGioHang u WHERE (u.gioHang.maGH = ?1)")
     List<ChiTietGioHang> getAllChiTietGioHangByID(int MaGH);
 
 }

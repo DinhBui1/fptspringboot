@@ -28,4 +28,10 @@ public class ChiTietDonHangControl {
     {
         return serv.updateCTDH(id,chiTietDonHang);
     }
+
+    @GetMapping("/ctdhbymadh")
+    public  List<ChiTietDonHang> getCTDHByMaDH(@RequestParam("id") int id)
+    {
+        return  serv.getCTDHByMaDH(id);
+    }
 }

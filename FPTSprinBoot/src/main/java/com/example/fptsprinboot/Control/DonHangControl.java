@@ -29,4 +29,9 @@ public class DonHangControl {
     {
         return serv.updateDonHang(id, donHang);
     }
+    @GetMapping("/donhangbymakh")
+    public  List<DonHang> getDonHangByMaKh(@RequestParam("id") int id)
+    {
+        return serv.getDonHangByMaKH(id);
+    }
 }

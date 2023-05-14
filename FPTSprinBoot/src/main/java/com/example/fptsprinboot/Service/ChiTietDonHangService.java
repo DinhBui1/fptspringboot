@@ -43,4 +43,8 @@ public class ChiTietDonHangService {
         }
         return null;
     }
+    public  List<ChiTietDonHang> getCTDHByMaDH(int id)
+    {
+        return repo.getChiTietDonHangByMaDH(id);
+    }
 }

@@ -3,9 +3,7 @@ package com.example.fptsprinboot.Control;
 import com.example.fptsprinboot.Model.ChiTietGioHang;
 import com.example.fptsprinboot.Service.ChiTietGioHangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +19,14 @@ public class ChiTietGioHangControl {
     }
 
     @PostMapping("/ctgh")
-    public ChiTietGioHang createCTGH(ChiTietGioHang chiTietGioHang)
+    public ChiTietGioHang createCTGH(@RequestBody  ChiTietGioHang chiTietGioHang)
     {
         return  serv.createCTGH(chiTietGioHang);
+    }
+
+    @GetMapping("/ctghbyid")
+    public List<ChiTietGioHang> getallCTGHById(@RequestParam("id") int id)
+    {
+        return  serv.getAllChiTietGioHangById(id);
     }
 }

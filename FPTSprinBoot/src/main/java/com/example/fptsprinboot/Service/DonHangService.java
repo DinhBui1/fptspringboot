@@ -43,4 +43,9 @@ public class DonHangService {
         return null;
     }
 
+    public List<DonHang> getDonHangByMaKH(int id)
+    {
+        return repo.getDonHangByMaKh(id);
+    }
+
 }
