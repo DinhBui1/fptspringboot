@@ -1,5 +1,6 @@
 package com.example.fptsprinboot.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class ChiTietGioHang {
     int maCTGH;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "MaGH")
     private GioHang gioHang;
 
