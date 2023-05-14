@@ -12,9 +12,7 @@ public class ChiTietGioHang {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaCTGH")
     int maCTGH;
-
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "MaGH")
     @JsonIgnore
     private GioHang gioHang;
@@ -53,11 +51,6 @@ public class ChiTietGioHang {
     public void setGioHang(GioHang gioHang) {
         this.gioHang = gioHang;
     }
-
-
-
-
-
     public int getSoLuong() {
         return soLuong;
     }
@@ -79,7 +72,6 @@ public class ChiTietGioHang {
         return "ChiTietGioHang{" +
                 "maCTGH=" + maCTGH +
                 ", gioHang=" + gioHang +
-
                 ", soLuong=" + soLuong +
                 ", idDelete=" + idDelete +
                 '}';
