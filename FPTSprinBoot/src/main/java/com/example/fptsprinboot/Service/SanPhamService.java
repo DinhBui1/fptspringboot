@@ -42,6 +42,10 @@ public class SanPhamService {
     {
         return  repo.save(sanPham);
     }
+    public List<SanPham> get8SanPham()
+    {
+        return  repo.get8SanPham();
+    }
     public SanPham updateSanPham(int id, SanPham sanPham)
     {
         if(sanPham!=null)

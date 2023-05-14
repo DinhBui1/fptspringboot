@@ -1,5 +1,6 @@
 package com.example.fptsprinboot.Control;
 
+import com.example.fptsprinboot.Model.KhachHang;
 import com.example.fptsprinboot.Model.SanPham;
 import com.example.fptsprinboot.Service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,10 @@ public class SanPhamControl {
     public  SanPham deleteSanPham(@RequestParam("id") int id)
     {
         return serv.deleteSanPham(id);
+    }
+    @GetMapping("/top8")
+    public List<SanPham> gettop8SanPham()
+    {
+        return serv.get8SanPham();
     }
 }

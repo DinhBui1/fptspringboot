@@ -15,6 +15,9 @@ public interface SanPhamRepository extends JpaRepository<SanPham,Integer> {
     @Query("SELECT u FROM SanPham u WHERE u.danhMuc.maDM= ?1")
     List<SanPham> getSanPhamByMaDM(int MaDM);
 
+    @Query("SELECT u FROM SanPham u ORDER BY u.maSP ASC LIMIT 8")
+    List<SanPham> get8SanPham();
+
     @Query("SELECT u FROM SanPham u WHERE u.maSP= ?1")
     SanPham getSanPhamByMaSP(int MaSP);
     @Modifying
