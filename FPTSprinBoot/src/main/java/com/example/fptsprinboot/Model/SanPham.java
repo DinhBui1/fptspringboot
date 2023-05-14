@@ -48,7 +48,19 @@ public class SanPham {
     @JsonIgnore
     private  List<ChiTietDonHang> listCTDH;
 
+    @OneToMany(mappedBy = "sanPham3",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private  List<ChiTietGioHang> listCTGH;
+
     public SanPham() {
+    }
+
+    public List<ChiTietGioHang> getListCTGH() {
+        return listCTGH;
+    }
+
+    public void setListCTGH(List<ChiTietGioHang> listCTGH) {
+        this.listCTGH = listCTGH;
     }
 
     public SanPham(int maSP, DanhMuc danhMuc, String tenSP, String moTa, int giaGoc, int giaBanThuong, int giaKhuyenMai, int soLuong, String anh, String moTaNgan, int isDeteted, List<AnhSanPham> listAnhSanPham, List<ChiTietDonHang> listCTDH) {
