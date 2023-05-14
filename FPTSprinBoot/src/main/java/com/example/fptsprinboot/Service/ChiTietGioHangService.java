@@ -45,6 +45,14 @@ public class ChiTietGioHangService {
             return  repo.save(chiTietGioHang);
         }
     }
+    public ChiTietGioHang updateSoLuong(int id,ChiTietGioHang chiTietGioHang)
+    {
+        GioHang gh= repo2.getGioHangByKhachHang(id);
+        ChiTietGioHang ctgh =repo.getAllChiTietGioHangByMaSP(chiTietGioHang.getSanPham3().getMaSP(),gh.getMaGH());
+        ctgh.setSoLuong(chiTietGioHang.getSoLuong());
+        return repo.save(ctgh);
+
+    }
 
     public  ChiTietGioHang getCTGHByMaSP(int id,int idkh)
     {
