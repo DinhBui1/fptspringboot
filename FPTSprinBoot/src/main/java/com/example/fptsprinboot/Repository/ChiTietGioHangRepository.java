@@ -13,4 +13,6 @@ public interface ChiTietGioHangRepository extends JpaRepository<ChiTietGioHang,I
     @Query("SELECT u FROM ChiTietGioHang u WHERE (u.gioHang.maGH = ?1)")
     List<ChiTietGioHang> getAllChiTietGioHangByID(int MaGH);
 
+    @Query("SELECT u FROM ChiTietGioHang u WHERE (u.sanPham3.maSP = ?1) and u.gioHang.maGH=?2 ")
+    ChiTietGioHang getAllChiTietGioHangByMaSP(int MaSP,int MaGH);
 }

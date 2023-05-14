@@ -1,7 +1,9 @@
 package com.example.fptsprinboot.Service;
 
 import com.example.fptsprinboot.Model.ChiTietGioHang;
+import com.example.fptsprinboot.Model.GioHang;
 import com.example.fptsprinboot.Repository.ChiTietGioHangRepository;
+import com.example.fptsprinboot.Repository.GioHangRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ public class ChiTietGioHangService {
     @Autowired
     private ChiTietGioHangRepository repo;
 
+    @Autowired
+    private GioHangRepository repo2;
+
     public List<ChiTietGioHang> getAllChiTietGioHang()
     {
         return  repo.findAll();
@@ -21,9 +26,29 @@ public class ChiTietGioHangService {
         return repo.getAllChiTietGioHangByID(magh);
     }
 
-    public ChiTietGioHang createCTGH(ChiTietGioHang chiTietGioHang)
+    public ChiTietGioHang createCTGH(ChiTietGioHang chiTietGioHang,int idkh)
     {
-        return repo.save(chiTietGioHang);
+        int id= chiTietGioHang.getSanPham3().getMaSP();
+        GioHang gh =repo2.getGioHangByKhachHang(idkh);
+        ChiTietGioHang ctgh = repo.getAllChiTietGioHangByMaSP(id,gh.getMaGH());
+        if(ctgh!=null)
+        {
+            int sl_them = chiTietGioHang.getSoLuong();
+            int sl_co = ctgh.getSoLuong();
+            ctgh.setSoLuong(sl_co+sl_them);
+            return repo.save(ctgh);
+        }
+        else
+        {
+            chiTietGioHang.setGioHang(gh);
+            chiTietGioHang.setIdDelete(0);
+            return  repo.save(chiTietGioHang);
+        }
+    }
+
+    public  ChiTietGioHang getCTGHByMaSP(int id,int idkh)
+    {
+        return repo.getAllChiTietGioHangByMaSP(id,idkh);
     }
 
 
