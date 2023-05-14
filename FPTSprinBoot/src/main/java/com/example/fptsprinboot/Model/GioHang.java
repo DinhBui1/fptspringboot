@@ -21,7 +21,6 @@ public class GioHang {
     private KhachHang khachHang;
 
     @OneToMany(mappedBy = "gioHang")
-    @JsonIgnore
     private List<ChiTietGioHang> chiTietGioHangs;
 
     @Column(name = "isdelete")
