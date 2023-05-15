@@ -26,6 +26,10 @@ public class TrangThai {
         this.tenTrangThai = tenTrangThai;
     }
 
+    public TrangThai(int maTrangThai) {
+        this.maTrangThai = maTrangThai;
+    }
+
     public TrangThai() {
     }
 

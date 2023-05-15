@@ -12,6 +12,8 @@ import java.util.List;
 public interface ChiTietGioHangRepository extends JpaRepository<ChiTietGioHang,Integer> {
     @Query("SELECT u FROM ChiTietGioHang u WHERE (u.gioHang.maGH = ?1) and u.idDelete=0")
     List<ChiTietGioHang> getAllChiTietGioHangByID(int MaGH);
+    @Query("SELECT u FROM ChiTietGioHang u WHERE (u.maCTGH = ?1) and u.idDelete=0")
+    ChiTietGioHang getAllChiTietGioHangByMaCTGH(int MaCTGH);
 
     @Query("SELECT u FROM ChiTietGioHang u WHERE (u.sanPham3.maSP = ?1) and u.gioHang.maGH=?2 and  u.idDelete=0")
     ChiTietGioHang getAllChiTietGioHangByMaSP(int MaSP,int MaGH);

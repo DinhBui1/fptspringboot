@@ -29,4 +29,5 @@ public class GioHangControl {
     {
         return  serv.getGioHangbyKhangHang(id);
     }
+
 }

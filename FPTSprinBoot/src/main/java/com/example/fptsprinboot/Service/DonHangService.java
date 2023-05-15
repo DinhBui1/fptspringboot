@@ -1,7 +1,7 @@
 package com.example.fptsprinboot.Service;
 
-import com.example.fptsprinboot.Model.DonHang;
-import com.example.fptsprinboot.Repository.DonHangRepository;
+import com.example.fptsprinboot.Model.*;
+import com.example.fptsprinboot.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,20 @@ public class DonHangService {
     @Autowired
     private DonHangRepository repo;
 
+    @Autowired
+    private GioHangRepository repo2;
+
+    @Autowired
+    private ChiTietGioHangRepository repo3;
+
+    @Autowired
+    private SanPhamRepository repo4;
+
+    @Autowired
+    private ChiTietDonHangRepository repo5;
+    @Autowired
+    private ChiTietGioHangService serv3;
+
     public List<DonHang> getAllDonHang()
     {
         return repo.findAll();
@@ -19,7 +33,24 @@ public class DonHangService {
 
     public DonHang createDonHang(DonHang donHang)
     {
-        return repo.save(donHang);
+
+        repo.save(donHang);
+        int makh = donHang.getKhachHang().getMaKH();
+        GioHang gh= repo2.getGioHangByKhachHang(makh);
+        int magh= gh.getMaGH();
+        List<ChiTietGioHang> chiTietGioHangs =repo3.getAllChiTietGioHangByID(magh);
+        for (ChiTietGioHang i :chiTietGioHangs) {
+            ChiTietDonHang ctdh = new ChiTietDonHang();
+            ctdh.setDonHang(donHang);
+            ctdh.setSoLuong(i.getSoLuong());
+            ctdh.setTongTien(donHang.getTongTien());
+            SanPham sp= repo4.getSanPhamByMaSP(i.getSanPham3().getMaSP());
+            ctdh.setSanPham2(sp);
+            serv3.updateIsDelete(i.getMaCTGH());
+            repo5.save(ctdh);
+        }
+        return donHang;
+
     }
     public DonHang getDonHangByID(int id)
     {

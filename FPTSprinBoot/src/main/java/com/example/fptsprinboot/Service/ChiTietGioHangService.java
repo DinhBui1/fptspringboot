@@ -53,6 +53,16 @@ public class ChiTietGioHangService {
         return repo.save(ctgh);
 
     }
+    public  ChiTietGioHang getCTGHByMaCTGH(int mactgh)
+    {
+        return repo.getAllChiTietGioHangByMaCTGH(mactgh);
+    }
+    public  ChiTietGioHang updateIsDelete(int mactgh)
+    {
+        ChiTietGioHang chiTietGioHang = repo.getAllChiTietGioHangByMaCTGH(mactgh);
+        chiTietGioHang.setIdDelete(1);
+        return repo.save(chiTietGioHang);
+    }
 
     public ChiTietGioHang deleteCartItem(int idKH, int idSP){
         GioHang gh = repo2.getGioHangByKhachHang(idKH);
