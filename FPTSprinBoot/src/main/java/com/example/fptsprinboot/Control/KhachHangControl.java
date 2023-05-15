@@ -30,6 +30,11 @@ public class KhachHangControl {
     {
         return  serv.updateKhachHang(id, khachHang);
     }
+    @GetMapping("/checkemail")
+    public KhachHang checkemail(@RequestParam("email")String email)
+    {
+        return serv.checkemail(email);
+    }
     @PostMapping("/khachhang-login")
         public KhachHang getKhachHang(@RequestParam("email") String email, @RequestParam("password") String password){
         return serv.getKhachHangByUsernamevsPassword(email,password);
