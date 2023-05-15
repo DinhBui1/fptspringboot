@@ -5,6 +5,7 @@ import com.example.fptsprinboot.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,8 +24,7 @@ public class DonHangService {
 
     @Autowired
     private ChiTietDonHangRepository repo5;
-    @Autowired
-    private ChiTietGioHangService serv3;
+
 
     public List<DonHang> getAllDonHang()
     {
@@ -33,7 +33,7 @@ public class DonHangService {
 
     public DonHang createDonHang(DonHang donHang)
     {
-
+        donHang.setNgayDatHang(new Date());
         repo.save(donHang);
         int makh = donHang.getKhachHang().getMaKH();
         GioHang gh= repo2.getGioHangByKhachHang(makh);
@@ -46,8 +46,8 @@ public class DonHangService {
             ctdh.setTongTien(donHang.getTongTien());
             SanPham sp= repo4.getSanPhamByMaSP(i.getSanPham3().getMaSP());
             ctdh.setSanPham2(sp);
-            serv3.updateIsDelete(i.getMaCTGH());
             repo5.save(ctdh);
+            repo3.delete(i);
         }
         return donHang;
 
