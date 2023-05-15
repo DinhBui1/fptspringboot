@@ -37,7 +37,6 @@ public class DonHang {
 
     public DonHang() {
     }
-
     public DonHang(int maDH, int maGH, int tongTien, Date thoiGian, String diaChi, Date NgayDatHang, int phuongThucThanhToan, String tenNguoiNhan, String soDienThoai, String email, List<ChiTietDonHang> listChiTietSanPham, TrangThai trangThai, KhachHang khachHang) {
         this.maDH = maDH;
 
