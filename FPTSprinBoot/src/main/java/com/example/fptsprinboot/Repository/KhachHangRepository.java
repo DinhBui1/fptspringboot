@@ -18,6 +18,8 @@ public interface KhachHangRepository extends JpaRepository<KhachHang,Integer> {
     List<KhachHang> getAllKhachHangLa();
     @Query("SELECT u FROM KhachHang u WHERE u.phone = ?1")
     KhachHang getKhachHangByPhone(String sdt);
+    @Query("SELECT u FROM KhachHang u WHERE u.email = ?1")
+    KhachHang checkemail(String email);
    @Modifying
     @Query("UPDATE KhachHang u SET u.tenKH = :name,u.phone=:phone,u.email=:email,u.diaChi=:diachi WHERE u.maKH = :id")
     void UpdateCustomerInfo(@Param("id") int MaKH, @Param("name") String TenKH, @Param("phone") String Phone, @Param("email") String Email, @Param("diachi") String DiaChi);

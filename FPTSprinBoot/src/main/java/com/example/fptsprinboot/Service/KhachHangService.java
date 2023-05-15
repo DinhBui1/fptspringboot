@@ -52,6 +52,10 @@ public class KhachHangService {
         return repo.getKhachHangByPhone(sdt);
     }
 
+    public  KhachHang checkemail(String email)
+    {
+        return repo.checkemail(email);
+    }
     public KhachHang getKhachHangByMaKH(int id)
     {return repo.findById(id).orElse(null);}
     public KhachHang getKhachHangByMaTK(int MaTK)
