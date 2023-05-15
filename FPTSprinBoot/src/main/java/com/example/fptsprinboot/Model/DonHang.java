@@ -24,7 +24,6 @@ public class DonHang {
     Date ngayDatHang;
 
     @OneToMany(mappedBy = "donHang",cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<ChiTietDonHang> listChiTietDonHang;
 
     @ManyToOne

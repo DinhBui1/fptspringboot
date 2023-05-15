@@ -1,6 +1,7 @@
 package com.example.fptsprinboot.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class ChiTietDonHang {
     @JoinColumn(name = "MaSP",nullable = false,referencedColumnName = "MaSP")
     private SanPham sanPham2;
     @ManyToOne()
+    @JsonIgnore
     @JoinColumn(name = "MaDH")
 
     private DonHang donHang;

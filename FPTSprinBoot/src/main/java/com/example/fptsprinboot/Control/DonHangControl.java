@@ -34,4 +34,10 @@ public class DonHangControl {
     {
         return serv.getDonHangByMaKH(id);
     }
+
+    @GetMapping("/donhangbymadh")
+    public DonHang getDonHangbymadh(@RequestParam("id") int id)
+    {
+        return serv.getDonHangByMaDH(id);
+    }
 }
