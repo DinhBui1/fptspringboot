@@ -79,4 +79,9 @@ public class DonHangService {
         return repo.getDonHangByMaKh(id);
     }
 
+    public DonHang getDonHangByMaDH(int id){
+        return repo.getDonHangById(id);
+    }
+
+
 }

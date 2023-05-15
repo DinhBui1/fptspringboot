@@ -33,7 +33,6 @@ public class ChiTietDonHangService {
             ChiTietDonHang ctdh=repo.getChiTietDonHangByID(id);
             if(ctdh!=null)
             {
-
                 ctdh.setDonHang(chiTietDonHang.getDonHang());
                 ctdh.setSanPham2(chiTietDonHang.getSanPham2());
                 ctdh.setSoLuong(chiTietDonHang.getSoLuong());
