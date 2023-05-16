@@ -48,6 +48,18 @@ public class SanPham {
     @JsonIgnore
     private  List<ChiTietDonHang> listCTDH;
 
+    @OneToMany(mappedBy = "sanPham",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private  List<DanhGia> listDanhGia;
+
+    public List<DanhGia> getListDanhGia() {
+        return listDanhGia;
+    }
+
+    public void setListDanhGia(List<DanhGia> listDanhGia) {
+        this.listDanhGia = listDanhGia;
+    }
+
     @OneToMany(mappedBy = "sanPham3",cascade = CascadeType.ALL)
     @JsonIgnore
     private  List<ChiTietGioHang> listCTGH;

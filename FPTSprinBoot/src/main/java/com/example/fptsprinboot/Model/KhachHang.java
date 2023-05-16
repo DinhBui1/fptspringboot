@@ -38,6 +38,10 @@ public class KhachHang {
     @JsonIgnore
     private List<DonHang> listDonHang;
 
+    @OneToMany(mappedBy = "khachHang",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<DanhGia> listDanhGia;
+
     @OneToOne(mappedBy = "khachHang")
     @JsonIgnore
    private GioHang gioHang;
@@ -52,6 +56,14 @@ public class KhachHang {
         this.diaChi = diaChi;
         this.isUser = isUser;
         this.isAdmin = isAdmin;
+    }
+
+    public List<DanhGia> getListDanhGia() {
+        return listDanhGia;
+    }
+
+    public void setListDanhGia(List<DanhGia> listDanhGia) {
+        this.listDanhGia = listDanhGia;
     }
 
     public KhachHang(int maKH, String tenKH, String tenTK, String email, String phone, String diaChi, String MK, String NNMK, int isVeify, int isUser, int isAdmin, int isShiper, List<DonHang> listDonHang) {
