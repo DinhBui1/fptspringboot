@@ -32,8 +32,6 @@ public class KhachHang {
     private int isUser;
     @Column(name = "IsAdmin")
     private int isAdmin;
-
-
     @OneToMany(mappedBy = "khachHang",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<DonHang> listDonHang;

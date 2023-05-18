@@ -1,6 +1,7 @@
 package com.example.fptsprinboot.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class AnhSanPham {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaAnhSP")
     int maAnhSP;
+    @JsonIgnore
     @ManyToOne
         @JoinColumn(name = "MaSP",nullable = false,referencedColumnName = "MaSP")
         private SanPham sanPham1;
