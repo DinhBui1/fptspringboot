@@ -6,6 +6,7 @@ import com.example.fptsprinboot.Repository.DanhGiaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,6 +32,15 @@ public class DanhGiaService {
         return  repo.save(danhGia);
     }
 
+    public List<DanhGia> createListDanhGai(List<DanhGia> listDanhGia) {
+        List<DanhGia> savedList = new ArrayList<>();
+        for (DanhGia d : listDanhGia) {
+            savedList.add(repo.save(d));
+        }
+        return savedList;
+    }
+
+
     public DanhGia updateDanhGia(DanhGia danhGia)
     {
         DanhGia dg =repo.getDanhGiaByMaDG(danhGia.getMaDG());
@@ -47,4 +57,5 @@ public class DanhGiaService {
         DanhGia dg=repo.getDanhGiaByMaDG(maDG);
         repo.delete(dg);
     }
+
 }
