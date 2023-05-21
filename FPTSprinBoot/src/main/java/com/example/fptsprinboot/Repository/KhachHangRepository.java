@@ -33,8 +33,11 @@ public interface KhachHangRepository extends JpaRepository<KhachHang,Integer> {
     @Query("SELECT u FROM KhachHang u WHERE u.tenTK=?1 and  u.mK=?2")
     KhachHang dangnhap(String tentk, String mk);
 
-    @Query("SELECT u FROM KhachHang u WHERE u.email = ?1 and u.mK = ?2")
+    @Query("SELECT u FROM KhachHang u WHERE u.email = ?1 and u.mK = ?2 and u.isUser=1")
     KhachHang getKhachHangByPWAndUsername(String email, String password);
+
+    @Query("SELECT u FROM KhachHang u WHERE u.email = ?1 and u.mK = ?2 and u.isAdmin=1")
+    KhachHang getAdminByPWAndUsername(String email, String password);
 
 
 }

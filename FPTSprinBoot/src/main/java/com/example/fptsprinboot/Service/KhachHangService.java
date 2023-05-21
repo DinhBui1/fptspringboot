@@ -103,4 +103,6 @@ public class KhachHangService {
 
     public KhachHang getKhachHangByUsernamevsPassword(String email, String password){return  repo.getKhachHangByPWAndUsername(email,password);}
 
+    public KhachHang getAdminByUsernamevsPassword(String email, String password){return  repo.getAdminByPWAndUsername(email,password);}
+
 }
