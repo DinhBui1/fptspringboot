@@ -39,9 +39,12 @@ public class KhachHangControl {
         public KhachHang getKhachHang(@RequestParam("email") String email, @RequestParam("password") String password){
         return serv.getKhachHangByUsernamevsPassword(email,password);
     }
+    @GetMapping("/allusers")
+    public List<KhachHang> getAllKhachHang(){
+        return serv.getAllCus();
+    }
     @PostMapping("/admin-login")
     public KhachHang getAdmin(@RequestParam("email") String email, @RequestParam("password") String password){
         return serv.getAdminByUsernamevsPassword(email,password);
     }
-
 }

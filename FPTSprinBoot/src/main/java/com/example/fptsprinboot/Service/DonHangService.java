@@ -65,7 +65,7 @@ public class DonHangService {
             {
                 dh.setKhachHang(donHang.getKhachHang());
                 dh.setTrangThai(donHang.getTrangThai());
-                dh.setNgayDatHang(donHang.getNgayDatHang());
+//                dh.setNgayDatHang(donHang.getNgayDatHang());
                 dh.setDiaChi(donHang.getDiaChi());
                 dh.setTongTien(donHang.getTongTien());
                 return repo.save(dh);
