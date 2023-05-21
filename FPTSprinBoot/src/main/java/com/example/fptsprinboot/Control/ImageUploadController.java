@@ -38,7 +38,7 @@ public class ImageUploadController {
             Files.copy(image.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
 
             // Tạo URL hoàn chỉnh cho tệp tin đã tải lên
-            String fileUrl = "/uploads/" + fileName;
+            String fileUrl = "http://10.0.2.2:8080/myapp/img/" + fileName;
 
             return ResponseEntity.ok(fileUrl);
         } catch (IOException e) {
