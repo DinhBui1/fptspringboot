@@ -14,4 +14,7 @@ public interface DonHangRepository extends JpaRepository<DonHang,Integer> {
 
     @Query("select u FROM DonHang u WHERE u.khachHang.maKH=?1")
     List<DonHang> getDonHangByMaKh(int id);
+
+    @Query("select sum (u.tongTien)from  DonHang u where month(u.ngayDatHang) =?1 ")
+    Integer doanhthu(int thang);
 }

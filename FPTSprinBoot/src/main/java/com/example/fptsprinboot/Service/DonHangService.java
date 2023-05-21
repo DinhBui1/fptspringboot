@@ -82,6 +82,10 @@ public class DonHangService {
     public DonHang getDonHangByMaDH(int id){
         return repo.getDonHangById(id);
     }
+    public  Integer doanhthu(Integer thang)
+    {
+        return  repo.doanhthu(thang);
+    }
 
 
 }

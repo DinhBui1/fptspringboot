@@ -6,6 +6,7 @@ import com.example.fptsprinboot.Service.DonHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -39,5 +40,25 @@ public class DonHangControl {
     public DonHang getDonHangbymadh(@RequestParam("id") int id)
     {
         return serv.getDonHangByMaDH(id);
+    }
+    @GetMapping("/doanhthu")
+    public  List<Integer> doanhthutheothang()
+    {
+        List<Integer> lists=new ArrayList<>() ;
+
+        for(int i=1;i<=12;i++)
+        {
+            Integer y= serv.doanhthu(i);
+            if(y!=null)
+            {
+                lists.add(y);
+            }
+            else
+            {
+                lists.add(0);
+            }
+
+        }
+        return lists;
     }
 }
