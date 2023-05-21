@@ -26,6 +26,10 @@ public class DanhGiaControl {
     {
         return serv.createDanhGia(danhGia);
     }
+    @PostMapping("/listdanhgia")
+    public List<DanhGia> createDanhGia(@RequestBody List<DanhGia> danhGiaList) {
+        return serv.createListDanhGai(danhGiaList);
+    }
     @PutMapping("/danhgia")
     public DanhGia updateDanhGia(@RequestBody DanhGia danhGia)
     {
