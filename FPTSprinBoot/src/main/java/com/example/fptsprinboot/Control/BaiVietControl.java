@@ -28,6 +28,11 @@ public class BaiVietControl {
     {
         return serv.updateBaiViet(id, baiViet);
     }
+    @DeleteMapping("/baiviet")
+    public  void  deleteBaiViet(@RequestParam("id") int id)
+    {
+        serv.deleteBaiViet(id);
+    }
 
 
 }
