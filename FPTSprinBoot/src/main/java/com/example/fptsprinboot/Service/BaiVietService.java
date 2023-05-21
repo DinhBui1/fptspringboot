@@ -40,4 +40,9 @@ public class BaiVietService {
         }
         return  null;
     }
+    public void deleteBaiViet(int id)
+    {
+        BaiViet bv= repo.findBaiVietByid(id);
+        repo.delete(bv);
+    }
 }
