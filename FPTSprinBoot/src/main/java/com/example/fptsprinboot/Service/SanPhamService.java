@@ -19,6 +19,9 @@ public class SanPhamService {
     public List<SanPham> getAllsanpham(int madm)
     {return repo.getSanPhamByMaDM(madm);}
 
+    public List<SanPham> getAllsanphamNotDelete(int madm)
+    {return repo.getSanPhamByMaDMNotDelete(madm);}
+
     public SanPham getmaloaibymasp(int masp)
     {
         return repo.getSanPhamByMaSP(masp);
@@ -52,6 +55,10 @@ public class SanPhamService {
     public List<SanPham> get8SanPham()
     {
         return  repo.get8SanPham();
+    }
+    public List<SanPham> get8SanPhamNotDelete()
+    {
+        return  repo.get8SanPhamNotDelete();
     }
     public SanPham updateSanPham(int id, SanPham sanPham)
     {

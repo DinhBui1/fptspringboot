@@ -22,6 +22,9 @@ public class SanPhamControl {
 
     @GetMapping("/sanpham-by-dm")
     public List<SanPham> getSanPhamByDanhMuc(@RequestParam("maDM") int maDM){return serv.getAllsanpham(maDM);}
+
+    @GetMapping("/sanpham-by-dm-not-delete")
+    public List<SanPham> getSanPhamByDanhMucNotDelete(@RequestParam("maDM") int maDM){return serv.getAllsanphamNotDelete(maDM);}
     @PostMapping("/sanpham")
     public SanPham createSanPham(@RequestBody SanPham sanPham)
     {
@@ -41,6 +44,12 @@ public class SanPhamControl {
     public List<SanPham> gettop8SanPham()
     {
         return serv.get8SanPham();
+    }
+
+    @GetMapping("/top8notdelete")
+    public List<SanPham> gettop8SanPhamNotDelete()
+    {
+        return serv.get8SanPhamNotDelete();
     }
 
     @GetMapping("/sanphambymasp")
