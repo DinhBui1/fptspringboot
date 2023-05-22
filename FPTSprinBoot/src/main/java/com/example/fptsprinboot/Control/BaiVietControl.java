@@ -4,6 +4,7 @@ import com.example.fptsprinboot.Model.BaiViet;
 import com.example.fptsprinboot.Repository.BaiVietRepository;
 import com.example.fptsprinboot.Service.BaiVietService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,9 +30,10 @@ public class BaiVietControl {
         return serv.updateBaiViet(id, baiViet);
     }
     @DeleteMapping("/baiviet")
-    public  void  deleteBaiViet(@RequestParam("id") int id)
+    public ResponseEntity<String> deleteBaiViet(@RequestParam("id") int id)
     {
         serv.deleteBaiViet(id);
+        return ResponseEntity.ok("User deleted successfully");
     }
 
 
