@@ -24,4 +24,6 @@ public interface SanPhamRepository extends JpaRepository<SanPham,Integer> {
     @Query("UPDATE SanPham u SET u.danhMuc = :madm,u.tenSP=:tensp,u.moTa=:mota,u.giaGoc=:giagoc,u.giaBanThuong=:giabanthuong,u.giaKhuyenMai=:giakhuyenmai,u.soLuong=:soluong,u.anh=:anh,u.moTaNgan=:motangan WHERE u.maSP = :id")
     void UpdateCustomerInfo(@Param("id") int MaSP,@Param("madm") int MaDM, @Param("mota") String MoTa, @Param("tensp") String TenSP,  @Param("giagoc") int GiaGoc,@Param("giabanthuong") int GiaBanThuong,@Param("giakhuyenmai") int GiaKhuyenMai,@Param("soluong") int SoLuong, @Param("anh") String Anh, @Param("motangan") String MoTaNgan);
 
+    @Query("SELECT u FROM SanPham u WHERE u.tenSP like %:key%")
+    List<SanPham> timkiemSanPham(@Param("key") String key);
 }

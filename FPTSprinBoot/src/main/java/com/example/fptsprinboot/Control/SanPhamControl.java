@@ -42,4 +42,9 @@ public class SanPhamControl {
     {
         return serv.get8SanPham();
     }
+
+    @GetMapping("/timkiem")
+    public List<SanPham> timkiemsanpham(@RequestParam("key") String key){
+        return  serv.timkiemSanPham(key);
+    }
 }
