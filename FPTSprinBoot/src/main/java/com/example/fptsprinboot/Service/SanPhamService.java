@@ -76,6 +76,10 @@ public class SanPhamService {
         }
         return null;
     }
+    public List<SanPham> timkiemSanPham(String keyword)
+    {
+        return repo.timkiemSanPham(keyword);
+    }
     public SanPham getSPbyMaSP(int id){
         return repo.getSanPhamByMaSP(id);
     }

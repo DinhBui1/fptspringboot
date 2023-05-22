@@ -45,4 +45,8 @@ public class SanPhamControl {
 
     @GetMapping("/sanphambymasp")
     public SanPham getSanPham(@RequestParam("id")int id){return serv.getSPbyMaSP(id);}
+    @GetMapping("/timkiem")
+    public List<SanPham> timkiemsanpham(@RequestParam("key") String key){
+        return  serv.timkiemSanPham(key);
+    }
 }
