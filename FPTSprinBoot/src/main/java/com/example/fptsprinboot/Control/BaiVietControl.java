@@ -35,6 +35,10 @@ public class BaiVietControl {
         serv.deleteBaiViet(id);
         return ResponseEntity.ok("User deleted successfully");
     }
+    @GetMapping("baivietbyid")
+    public BaiViet getBaiVietById(@RequestParam("id") int id){
+        return serv.findBaiVietbyid(id);
+    }
 
 
 }
