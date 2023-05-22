@@ -42,4 +42,7 @@ public class SanPhamControl {
     {
         return serv.get8SanPham();
     }
+
+    @GetMapping("/sanphambymasp")
+    public SanPham getSanPham(@RequestParam("id")int id){return serv.getSPbyMaSP(id);}
 }

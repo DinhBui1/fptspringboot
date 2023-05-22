@@ -33,7 +33,14 @@ public class SanPhamService {
         SanPham sp=repo.getSanPhamByMaSP(maSP);
         if(sp!=null)
         {
-            sp.setIsDeteted(1);
+            // xóa
+            if(sp.getIsDeteted()==0){
+                sp.setIsDeteted(1);
+            }
+            else {
+                // khôi phục
+                sp.setIsDeteted(0);
+            }
             return repo.save(sp);
         }
         return  null;
@@ -61,12 +68,15 @@ public class SanPhamService {
                 sp.setGiaBanThuong(sanPham.getGiaBanThuong());
                 sp.setGiaKhuyenMai(sanPham.getGiaKhuyenMai());
                 sp.setSoLuong(sanPham.getSoLuong());
-                sp.setAnh(sp.getAnh());
+                sp.setAnh(sanPham.getAnh());
                 sp.setIsDeteted(0);
                 return repo.save(sp);
             }
 
         }
         return null;
+    }
+    public SanPham getSPbyMaSP(int id){
+        return repo.getSanPhamByMaSP(id);
     }
 }
