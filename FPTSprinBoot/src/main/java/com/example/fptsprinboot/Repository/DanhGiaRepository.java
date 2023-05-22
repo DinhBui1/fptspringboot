@@ -17,4 +17,8 @@ public interface DanhGiaRepository extends JpaRepository<DanhGia,Integer> {
 
     @Query("SELECT u FROM DanhGia u WHERE u.maDG=?1")
     DanhGia getDanhGiaByMaDG(int madg);
+
+    @Query("SELECT AVG(u.vote) FROM DanhGia u WHERE u.sanPham.maSP = ?1")
+    double getAverageDanhGia(int masp);
+
 }

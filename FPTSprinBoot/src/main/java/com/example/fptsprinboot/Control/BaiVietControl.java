@@ -24,7 +24,7 @@ public class BaiVietControl {
     {
         return serv.createBaiViet(baiViet);
     }
-    @PutMapping("/baiviet")
+        @PutMapping("/baiviet")
     public  BaiViet updateBaiViet(@RequestParam("id") int id,@RequestBody BaiViet baiViet)
     {
         return serv.updateBaiViet(id, baiViet);

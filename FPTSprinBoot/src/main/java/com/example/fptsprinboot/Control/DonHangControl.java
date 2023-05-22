@@ -61,4 +61,6 @@ public class DonHangControl {
         }
         return lists;
     }
+    @GetMapping("/neworderamount")
+    public int getNewOrderAmount() {return serv.newOrderAmount();}
 }

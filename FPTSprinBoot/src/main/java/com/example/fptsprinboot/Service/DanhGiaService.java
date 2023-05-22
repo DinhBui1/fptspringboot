@@ -58,4 +58,8 @@ public class DanhGiaService {
         repo.delete(dg);
     }
 
+    public double getAverageDanhGia(int maSP){
+        return repo.getAverageDanhGia(maSP);
+    }
+
 }

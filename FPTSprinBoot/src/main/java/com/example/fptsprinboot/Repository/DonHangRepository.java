@@ -17,4 +17,7 @@ public interface DonHangRepository extends JpaRepository<DonHang,Integer> {
 
     @Query("select sum (u.tongTien)from  DonHang u where month(u.ngayDatHang) =?1 ")
     Integer doanhthu(int thang);
+
+    @Query("select count (u)from  DonHang u where u.trangThai.maTrangThai = 1 ")
+    Integer newOrder();
 }

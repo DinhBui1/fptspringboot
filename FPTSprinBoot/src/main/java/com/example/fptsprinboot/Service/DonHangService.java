@@ -87,5 +87,8 @@ public class DonHangService {
         return  repo.doanhthu(thang);
     }
 
+    public int newOrderAmount(){
+        return repo.newOrder();
+    }
 
 }
